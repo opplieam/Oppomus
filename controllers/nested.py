@@ -1,17 +1,19 @@
 from multiprocessing import Process, Queue
-import threading
+from threading import Thread, activeCount, enumerate
 import traceback
 from libs.getbsoup import get_b_soup
 from libs.logger import Logger
 import config
 
 
-def crawl_thread(soup, module):
+def crawl_thread(url, module):
     Logger.debug('Thread start')
+    encoding = getattr(module, 'ENCODING', None)
     try:
+        soup = get_b_soup(url, encoding=encoding)
         module.crawl(soup)
     except:
-        Logger.error('Crawl error')
+        Logger.error('Crawl error url: ' + url)
         Logger.error(traceback.format_exc())
         return
     Logger.debug('Thread done')
@@ -27,18 +29,16 @@ def crawl(module, url_queue):
             #If all threads are done then break the loop, Otherwise continue.
             #Why 2 ? because its need to deduct by the main thread and queue thread,
             # You can comment out the enumerate() line to see what is going on
-            #Logger.debug(str(threading.enumerate()))
-            if threading.activeCount() <= 2:
+            #Logger.debug(str(enumerate()))
+            if activeCount() <= 2:
                 Logger.info('Break crawl')
                 break
             else:
-                Logger.debug('There are ' + str(threading.activeCount() - 2) + ' left')
+                Logger.debug('There are ' + str(activeCount() - 2) + ' threads left')
                 continue
 
-        #Spawn a new threads and parse a beautiful soup
-        encoding = getattr(module, 'ENCODING', None)
-        soup = get_b_soup(url, encoding=encoding)
-        thread = threading.Thread(target=crawl_thread, args=(soup, module), name='CrawlThread')
+        #Spawn a new threads immediate after get the url
+        thread = Thread(target=crawl_thread, args=(url, module), name='CrawlThread')
         thread.start()
 
     Logger.info('Crawl done')

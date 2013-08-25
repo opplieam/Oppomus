@@ -47,6 +47,8 @@ future
 
 Change log
 =======
+v0.0.2
+- Improve speed of nested crawl
 v0.0.1
 - Automatic create `logs/` director if it doesn't exists
 
