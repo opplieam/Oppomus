@@ -1,5 +1,5 @@
 from multiprocessing import current_process, get_logger
-import os
+from os.path import abspath
 import logging
 import config
 
@@ -16,7 +16,7 @@ class Logger():
             Logger.logging = logging.getLogger()
         Logger.logging.setLevel(config.LOG_LEVEL)
         #create file handler which logs even debug messages
-        fh = logging.FileHandler(os.path.abspath('') + '/logs/'
+        fh = logging.FileHandler(abspath('') + '/logs/'
                                  + str(current_process().name), mode='a')
         fh.setLevel(config.LOG_LEVEL)
         #create console handler with a higher log level

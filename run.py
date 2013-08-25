@@ -1,13 +1,13 @@
 #!/usr/bin/env python
-from controllers.main import main
 import os
+from os.path import abspath, isdir
+from controllers.main import main
 
-logs_dir = os.path.join(os.path.realpath(os.path.dirname(__file__)), 'logs')
+logs_dir = abspath('logs/')
 
 
 def run():
-    if not os.path.isdir(logs_dir):
-        print ("Creating %s" % logs_dir)
+    if not isdir(logs_dir):
         os.makedirs(logs_dir)
 
     main()
