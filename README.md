@@ -1,7 +1,10 @@
 Parallel web crawler (Oppomus)
 =======
 - Take full advantage of multiple cores/CPU
+- Network concurrent
 - Suitable for normal to huge crawling scale
+- Dynamic bots
+- Logging system
 - Easy to use
 
 Prerequisites
