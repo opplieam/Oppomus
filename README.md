@@ -16,9 +16,13 @@ Oppomus crawl method
 =======
 Normal scale
 - line -> Just a simple crawl method. Nothing surprise, You can see an example in the `bots/exline.py`
+
+![ScreenShot](http://img21.imageshack.us/img21/1368/jd7m.png)
 - nested -> In the case you need to travel into a deep structure. Oppomus let you divide the task and
   solving in a parallel way. Basic ex. You need to extract all product names in amazon. First task; collect all
   the item urls. Second task; get urls, travel and extract the name.
+
+![ScreenShot](http://img832.imageshack.us/img832/4121/2mwj.png)
 
 How to
 =======
