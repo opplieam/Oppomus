@@ -54,6 +54,9 @@ future
 
 Change log
 =======
+v0.0.3
+- Add smart_trim in library
+
 v0.0.2
 - Improve speed of nested crawl
 

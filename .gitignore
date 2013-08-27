@@ -5,3 +5,8 @@
 
 # logs directory
 logs/
+.idea/encodings.xml
+.idea/modules.xml
+.idea/oppomus.iml
+.idea/other.xml
+.idea/testrunner.xml
