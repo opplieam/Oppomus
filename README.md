@@ -54,6 +54,9 @@ future
 
 Change log
 =======
+v0.0.4
+- `BOTS_TO_RUN = []` can run all the bots
+
 v0.0.3
 - Add smart_trim in library
 

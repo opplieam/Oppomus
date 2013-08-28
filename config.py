@@ -3,8 +3,9 @@
 #A list of bots to run in the system
 #Ex. BOTS_TO_RUN = ['line','nested'] which run 2 bots
 #Ex. BOTS_TO_RUN = ['line']
+#Ex. BOTS_TO_RUN = [] which run all bots
 #'line', 'nested' is the name of the file in bots package
-BOTS_TO_RUN = ['exline', 'exnested']
+BOTS_TO_RUN = []
 
 
 #Default bot crawling method, If not specific the crawl method in bots file.
